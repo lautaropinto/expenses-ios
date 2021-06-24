@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6145E3102661CA71005FE93C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145E30F2661CA71005FE93C /* MainView.swift */; };
+		6145E3192661CAA5005FE93C /* ProgramaticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145E3182661CAA5005FE93C /* ProgramaticalLayout.swift */; };
+		6145E3252661CF69005FE93C /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145E3242661CF69005FE93C /* Expense.swift */; };
+		6145E32D2661D196005FE93C /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145E32C2661D196005FE93C /* ExpenseCell.swift */; };
 		8E20689925C9948B006C03C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E20689825C9948B006C03C8 /* AppDelegate.swift */; };
 		8E20689B25C9948B006C03C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E20689A25C9948B006C03C8 /* SceneDelegate.swift */; };
-		8E20689D25C9948B006C03C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E20689C25C9948B006C03C8 /* ViewController.swift */; };
+		8E20689D25C9948B006C03C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E20689C25C9948B006C03C8 /* MainViewController.swift */; };
 		8E2068A225C9948C006C03C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2068A125C9948C006C03C8 /* Assets.xcassets */; };
 		8E2068A525C9948C006C03C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2068A325C9948C006C03C8 /* LaunchScreen.storyboard */; };
 		8E2068B025C9948C006C03C8 /* expensesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2068AF25C9948C006C03C8 /* expensesAppTests.swift */; };
@@ -34,10 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6145E30F2661CA71005FE93C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		6145E3182661CAA5005FE93C /* ProgramaticalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramaticalLayout.swift; sourceTree = "<group>"; };
+		6145E3242661CF69005FE93C /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		6145E32C2661D196005FE93C /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		8E20689525C9948B006C03C8 /* expensesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expensesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E20689825C9948B006C03C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E20689A25C9948B006C03C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8E20689C25C9948B006C03C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8E20689C25C9948B006C03C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8E2068A125C9948C006C03C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E2068A425C9948C006C03C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E2068A625C9948C006C03C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +82,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6145E3172661CA96005FE93C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6145E3182661CAA5005FE93C /* ProgramaticalLayout.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6145E3232661CF60005FE93C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6145E3242661CF69005FE93C /* Expense.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8E20688C25C9948B006C03C8 = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +121,8 @@
 		8E20689725C9948B006C03C8 /* expensesApp */ = {
 			isa = PBXGroup;
 			children = (
+				6145E3172661CA96005FE93C /* Common */,
 				E9C6896525C9D2F50076DD78 /* Resources */,
-				E9C6896225C9D2AE0076DD78 /* Common */,
 				E9C6896125C9D2680076DD78 /* Scenes */,
 				8E20689825C9948B006C03C8 /* AppDelegate.swift */,
 				8E20689A25C9948B006C03C8 /* SceneDelegate.swift */,
@@ -129,22 +153,18 @@
 		E9C6896125C9D2680076DD78 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				6145E3232661CF60005FE93C /* Model */,
 				E9C6896325C9D2BE0076DD78 /* MainView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		E9C6896225C9D2AE0076DD78 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		E9C6896325C9D2BE0076DD78 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				8E20689C25C9948B006C03C8 /* ViewController.swift */,
+				8E20689C25C9948B006C03C8 /* MainViewController.swift */,
+				6145E30F2661CA71005FE93C /* MainView.swift */,
+				6145E32C2661D196005FE93C /* ExpenseCell.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -286,8 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E20689D25C9948B006C03C8 /* ViewController.swift in Sources */,
+				6145E3252661CF69005FE93C /* Expense.swift in Sources */,
+				8E20689D25C9948B006C03C8 /* MainViewController.swift in Sources */,
+				6145E3102661CA71005FE93C /* MainView.swift in Sources */,
 				8E20689925C9948B006C03C8 /* AppDelegate.swift in Sources */,
+				6145E32D2661D196005FE93C /* ExpenseCell.swift in Sources */,
+				6145E3192661CAA5005FE93C /* ProgramaticalLayout.swift in Sources */,
 				8E20689B25C9948B006C03C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,7 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9A7SR3D845;
 				INFOPLIST_FILE = expensesAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,7 +545,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9A7SR3D845;
 				INFOPLIST_FILE = expensesAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,6 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9A7SR3D845;
 				INFOPLIST_FILE = expensesAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,6 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9A7SR3D845;
 				INFOPLIST_FILE = expensesAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
