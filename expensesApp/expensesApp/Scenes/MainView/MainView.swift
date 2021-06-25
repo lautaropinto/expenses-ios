@@ -8,6 +8,7 @@
 import UIKit
 
 internal final class MainView: UIView {
+    let backgroundView = prepareBackgroundView()
     let mainTitle = prepareMainTitle()
     let totalLabel = prepareTotalLabel()
     let expensesTable = prepareExpensesTable()
@@ -41,24 +42,29 @@ internal final class MainView: UIView {
         let negativeExpenses = expenses.filter{ $0.type == .negative }.map{$0.amount}.reduce(0, +)
         
         incomeView.title = "INCOME"
-        incomeView.value = "$\(positiveExpenses)"
+        incomeView.value = positiveExpenses
         incomeView.type = .positive
         
         expenseView.title = "EXPENSE"
-        expenseView.value = "$\(negativeExpenses)"
+        expenseView.value = negativeExpenses
         expenseView.type = .negative
         
-        totalLabel.text = "$ \(positiveExpenses - negativeExpenses)"
+        totalLabel.amount = positiveExpenses - negativeExpenses
     }
 }
 
 extension MainView: ProgramaticalLayout {
     func setUpViewHierarchy() {
-        [mainTitle, totalLabel, incomeView, expenseView, expensesTable].forEach({ addSubview($0) })
+        [backgroundView, mainTitle, totalLabel, incomeView, expenseView, expensesTable].forEach({ addSubview($0) })
     }
     
     func setUpConstraints() {
         NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backgroundView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
+            backgroundView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            
             mainTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 40),
             mainTitle.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
@@ -101,16 +107,16 @@ fileprivate func prepareMainTitle() -> UILabel {
     label.translatesAutoresizingMaskIntoConstraints = false
     label.text = "CURRENT BALANCE"
     label.font = .worksansRegular.withSize(12)
-    label.textColor = .black
+    label.textColor = Colors.lightPurple
     
     return label
 }
 
-fileprivate func prepareTotalLabel() -> UILabel {
-    let label = UILabel()
+fileprivate func prepareTotalLabel() -> AmountLabel {
+    let label = AmountLabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = .worksansMedium.withSize(45)
-    label.textColor = .black
+    label.textColor = Colors.white
     
     return label
 }
@@ -123,9 +129,15 @@ fileprivate func prepareExpensesTable() -> UITableView {
     tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     tableView.bounces = false
     tableView.showsVerticalScrollIndicator = false
-    tableView.backgroundColor = .white
+    tableView.backgroundColor = .clear
     tableView.register(ExpenseCell.self, forCellReuseIdentifier: ExpenseCell.description())
     
     return tableView
 }
     
+fileprivate func prepareBackgroundView() -> UIView {
+    let view = UIView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    
+    return view
+}

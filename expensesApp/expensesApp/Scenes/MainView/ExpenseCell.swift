@@ -30,8 +30,16 @@ internal final class ExpenseCell: UITableViewCell {
     
     private func updateUI() {
         descriptionLabel.text = expense.description
-        dateLabel.text = expense.date.description
-        amountLabel.text = "\(expense.amount)"
+        amountLabel.amount = expense.amount
+        amountLabel.textColor = expense.type == .positive ? Colors.green : Colors.red
+        formatDate()
+    }
+    
+    private func formatDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        dateLabel.text = dateFormatter.string(from: expense.date)
     }
 }
 
@@ -44,10 +52,10 @@ extension ExpenseCell: ProgramaticalLayout {
     
     func setUpConstraints() {
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             
             descriptionLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15),
             descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
@@ -62,7 +70,8 @@ extension ExpenseCell: ProgramaticalLayout {
     }
     
     func setUpAdditionalConfig() {
-        contentView.backgroundColor = .white
+        self.backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
 }
 
@@ -70,13 +79,16 @@ fileprivate func prepareContainerView() -> UIView {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
     view.backgroundColor = .white
-    view.layer.borderWidth = 1
-    view.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
-    view.layer.cornerRadius = 10
+//    view.layer.borderWidth = 0
+    view.layer.shadowColor = UIColor.black.cgColor
+    view.layer.shadowOpacity = 0.1
+    view.layer.shadowOffset = .zero
+    view.layer.shadowRadius = 50
+    view.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor
+    view.layer.cornerRadius = 6
     
     return view
 }
-
 
 fileprivate func prepareDescriptionLabel() -> UILabel {
     let label = UILabel()
@@ -96,8 +108,8 @@ fileprivate func prepareDateLabel() -> UILabel {
     return label
 }
 
-fileprivate func prepareAmountLabel() -> UILabel {
-    let label = UILabel()
+fileprivate func prepareAmountLabel() -> AmountLabel {
+    let label = AmountLabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = .worksansMedium.withSize(15)
     label.textColor = .black

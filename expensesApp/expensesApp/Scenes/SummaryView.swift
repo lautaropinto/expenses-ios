@@ -18,9 +18,9 @@ internal final class SummaryView: UIView {
         }
     }
     
-    var value: String = "" {
+    var value: Double = 0 {
         didSet {
-            valueLabel.text = value
+            valueLabel.amount = value
         }
     }
     
@@ -61,16 +61,16 @@ fileprivate func prepareTitleLabel() -> UILabel {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = .worksansRegular.withSize(12)
-    label.textColor = .black
+    label.textColor = Colors.lightPurple
     
     return label
 }
 
-fileprivate func prepareValueLabel() -> UILabel {
-    let label = UILabel()
+fileprivate func prepareValueLabel() -> AmountLabel {
+    let label = AmountLabel()
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.font = .worksansRegular.withSize(17)
-    label.textColor = .black
+    label.font = .worksansMedium.withSize(17)
+    label.textColor = Colors.white
     
     return label
 }

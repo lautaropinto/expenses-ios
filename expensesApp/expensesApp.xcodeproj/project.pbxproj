@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611739AC26865CEB00EAA455 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611739AB26865CEB00EAA455 /* UIColor+hex.swift */; };
+		611739AE26865CF800EAA455 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611739AD26865CF800EAA455 /* ColorConstants.swift */; };
+		611739B0268671AE00EAA455 /* AmountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611739AF268671AE00EAA455 /* AmountLabel.swift */; };
 		6145E3102661CA71005FE93C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145E30F2661CA71005FE93C /* MainView.swift */; };
 		6145E3192661CAA5005FE93C /* ProgramaticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145E3182661CAA5005FE93C /* ProgramaticalLayout.swift */; };
 		6145E3252661CF69005FE93C /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145E3242661CF69005FE93C /* Expense.swift */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		611739AB26865CEB00EAA455 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		611739AD26865CF800EAA455 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
+		611739AF268671AE00EAA455 /* AmountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountLabel.swift; sourceTree = "<group>"; };
 		6145E30F2661CA71005FE93C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6145E3182661CAA5005FE93C /* ProgramaticalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramaticalLayout.swift; sourceTree = "<group>"; };
 		6145E3242661CF69005FE93C /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
@@ -98,6 +104,8 @@
 				6145E3182661CAA5005FE93C /* ProgramaticalLayout.swift */,
 				61E414F2268534A600ADD921 /* AutoLayout+PW.swift */,
 				61E4151D2685393700ADD921 /* Fonts.swift */,
+				611739AB26865CEB00EAA455 /* UIColor+hex.swift */,
+				611739AD26865CF800EAA455 /* ColorConstants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -177,6 +185,7 @@
 				6145E3232661CF60005FE93C /* Model */,
 				E9C6896325C9D2BE0076DD78 /* MainView */,
 				61E414F0268531E100ADD921 /* SummaryView.swift */,
+				611739AF268671AE00EAA455 /* AmountLabel.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -334,13 +343,16 @@
 				6145E3252661CF69005FE93C /* Expense.swift in Sources */,
 				8E20689D25C9948B006C03C8 /* MainViewController.swift in Sources */,
 				6145E3102661CA71005FE93C /* MainView.swift in Sources */,
+				611739AE26865CF800EAA455 /* ColorConstants.swift in Sources */,
 				8E20689925C9948B006C03C8 /* AppDelegate.swift in Sources */,
 				6145E32D2661D196005FE93C /* ExpenseCell.swift in Sources */,
 				61E414F1268531E100ADD921 /* SummaryView.swift in Sources */,
 				61E4151E2685393700ADD921 /* Fonts.swift in Sources */,
+				611739AC26865CEB00EAA455 /* UIColor+hex.swift in Sources */,
 				6145E3192661CAA5005FE93C /* ProgramaticalLayout.swift in Sources */,
 				61E414F3268534A600ADD921 /* AutoLayout+PW.swift in Sources */,
 				8E20689B25C9948B006C03C8 /* SceneDelegate.swift in Sources */,
+				611739B0268671AE00EAA455 /* AmountLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

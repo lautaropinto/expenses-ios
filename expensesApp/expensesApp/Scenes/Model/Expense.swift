@@ -17,6 +17,13 @@ internal struct Expense {
 internal enum ExpenseType {
     case positive
     case negative
+    
+    var symbol: String {
+        switch self {
+        case .positive: return "+"
+        case .negative: return "-"
+        }
+    }
 }
 
 extension Expense {
