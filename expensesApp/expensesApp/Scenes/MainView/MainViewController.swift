@@ -40,5 +40,9 @@ internal final class MainViewController: UIViewController, ProgramaticalLayout {
             mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
+    func setUpAdditionalConfig() {
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 

@@ -81,6 +81,7 @@ fileprivate func prepareContainerView() -> UIView {
 fileprivate func prepareDescriptionLabel() -> UILabel {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
+    label.font = .worksansMedium.withSize(17)
     label.textColor = .black
     
     return label
@@ -89,6 +90,7 @@ fileprivate func prepareDescriptionLabel() -> UILabel {
 fileprivate func prepareDateLabel() -> UILabel {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
+    label.font = .worksansRegular.withSize(13)
     label.textColor = .black
     
     return label
@@ -97,6 +99,7 @@ fileprivate func prepareDateLabel() -> UILabel {
 fileprivate func prepareAmountLabel() -> UILabel {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
+    label.font = .worksansMedium.withSize(15)
     label.textColor = .black
     
     return label
