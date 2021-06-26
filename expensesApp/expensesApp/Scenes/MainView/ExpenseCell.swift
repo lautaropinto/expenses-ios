@@ -30,9 +30,14 @@ internal final class ExpenseCell: UITableViewCell {
     
     private func updateUI() {
         descriptionLabel.text = expense.description
-        amountLabel.amount = expense.amount
-        amountLabel.textColor = expense.type == .positive ? Colors.green : Colors.red
+        updateAmount()
         formatDate()
+    }
+    
+    private func updateAmount() {
+        amountLabel.amount = expense.amount
+        amountLabel.text = expense.type == .positive ? "+ \(amountLabel.text!)" : "- \(amountLabel.text!)"
+        amountLabel.textColor = expense.type == .positive ? Colors.green : Colors.red
     }
     
     private func formatDate() {
@@ -72,14 +77,15 @@ extension ExpenseCell: ProgramaticalLayout {
     func setUpAdditionalConfig() {
         self.backgroundColor = .clear
         contentView.backgroundColor = .clear
+        selectionStyle = .none
     }
 }
 
+// MARK:- UI Builders
 fileprivate func prepareContainerView() -> UIView {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
     view.backgroundColor = .white
-//    view.layer.borderWidth = 0
     view.layer.shadowColor = UIColor.black.cgColor
     view.layer.shadowOpacity = 0.1
     view.layer.shadowOffset = .zero

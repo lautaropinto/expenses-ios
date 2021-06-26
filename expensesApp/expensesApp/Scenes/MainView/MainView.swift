@@ -53,6 +53,7 @@ internal final class MainView: UIView {
     }
 }
 
+// MARK:- AutoLayout
 extension MainView: ProgramaticalLayout {
     func setUpViewHierarchy() {
         [backgroundView, mainTitle, totalLabel, incomeView, expenseView, expensesTable].forEach({ addSubview($0) })
@@ -86,6 +87,7 @@ extension MainView: ProgramaticalLayout {
     }
 }
 
+// MARK:- Table view
 extension MainView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expenses.count
@@ -102,6 +104,8 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+// MARK:- UIBuilders
 fileprivate func prepareMainTitle() -> UILabel {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
@@ -131,6 +135,7 @@ fileprivate func prepareExpensesTable() -> UITableView {
     tableView.showsVerticalScrollIndicator = false
     tableView.backgroundColor = .clear
     tableView.register(ExpenseCell.self, forCellReuseIdentifier: ExpenseCell.description())
+//    table.
     
     return tableView
 }

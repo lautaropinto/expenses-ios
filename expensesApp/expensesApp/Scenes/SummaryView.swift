@@ -40,6 +40,7 @@ internal final class SummaryView: UIView {
     }
 }
 
+// MARK:- AutoLayout
 extension SummaryView: ProgramaticalLayout {
     func setUpViewHierarchy() {
         [titleLabel, valueLabel].forEach{ addSubview($0) }
@@ -56,7 +57,7 @@ extension SummaryView: ProgramaticalLayout {
 }
 
 
-
+// MARK:- UIBuilders
 fileprivate func prepareTitleLabel() -> UILabel {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false

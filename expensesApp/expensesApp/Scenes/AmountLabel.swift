@@ -13,13 +13,10 @@ internal final class AmountLabel: UILabel {
             let currencyFormatter = NumberFormatter()
             currencyFormatter.usesGroupingSeparator = true
             currencyFormatter.numberStyle = .currency
-            // localize to your grouping and decimal separator
             currencyFormatter.locale = Locale.current
 
-            // We'll force unwrap with the !, if you've got defined data you may need more error checking
-
-            let priceString = currencyFormatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
-            self.text = priceString
+            let amountString = currencyFormatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
+            self.text = amountString
         }
     }
 }

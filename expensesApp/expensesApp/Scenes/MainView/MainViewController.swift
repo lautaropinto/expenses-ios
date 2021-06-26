@@ -64,4 +64,3 @@ internal final class MainViewController: UIViewController, ProgramaticalLayout {
         self.view.layer.insertSublayer(gradientLayer, at:0)
     }
 }
-
