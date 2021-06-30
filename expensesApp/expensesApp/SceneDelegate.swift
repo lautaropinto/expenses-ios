@@ -8,7 +8,6 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
 
@@ -21,10 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     
-        let navigationController = UINavigationController(rootViewController: MainViewController())
+        let home = HomeTabBarController()
+        home.delegate = home
         
         window?.windowScene = windowScene
-        window?.rootViewController = navigationController
+        window?.rootViewController = home
         window?.makeKeyAndVisible()
     }
 
@@ -55,7 +55,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-

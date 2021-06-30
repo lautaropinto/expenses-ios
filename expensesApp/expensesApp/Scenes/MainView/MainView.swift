@@ -104,7 +104,6 @@ extension MainView: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
 // MARK:- UIBuilders
 fileprivate func prepareMainTitle() -> UILabel {
     let label = UILabel()

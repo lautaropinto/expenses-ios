@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+internal final class LocalExpenseDataSource: ExpensesDataSource {
+    static var shared = LocalExpenseDataSource()
+    
+    var expenses: [Expense] = []
+    
+    func getExpenses() -> [Expense] {
+        return expenses
+    }
+    
+    func newExpense(_ expense: Expense) {
+        expenses.append(expense)
+    }
+}

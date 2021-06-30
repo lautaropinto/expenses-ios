@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+internal protocol ExpensesDataSource {
+    func getExpenses() -> [Expense]
+    
+    func newExpense(_ expense: Expense)
+}
