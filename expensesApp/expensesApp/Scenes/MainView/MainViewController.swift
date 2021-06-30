@@ -14,18 +14,24 @@ internal final class MainViewController: UIViewController, ProgramaticalLayout {
         
         return view
     }()
+    
     var expenses: [Expense] = [] {
         didSet {
             mainView.expenses = expenses
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        expenses = LocalExpenseDataSource.shared.getExpenses()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+
         setUpView()
-        expenses = Expense.getFakeList()
+        let fakeExpenses: [Expense] = Expense.getFakeList()
+        fakeExpenses.forEach { LocalExpenseDataSource.shared.newExpense($0) }
     }
     
     func setUpViewHierarchy() {
@@ -62,5 +68,11 @@ internal final class MainViewController: UIViewController, ProgramaticalLayout {
         gradientLayer.frame = frame
                 
         self.view.layer.insertSublayer(gradientLayer, at:0)
+    }
+}
+
+extension MainViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        expenses = LocalExpenseDataSource.shared.getExpenses()
     }
 }

@@ -17,6 +17,6 @@ internal final class LocalExpenseDataSource: ExpensesDataSource {
     }
     
     func newExpense(_ expense: Expense) {
-        expenses.append(expense)
+        expenses.insert(expense, at: 0)
     }
 }

@@ -7,23 +7,32 @@
 
 import UIKit
 
-class HomeTabBarController: UITabBarController {
-
+class HomeTabBarController: UITabBarController, UITabBarControllerDelegate {
+    let mainView = MainViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let item1 = UITabBarItem(title: "Home", image: nil, selectedImage: nil)
+        mainView.tabBarItem = item1
+        
+        let newExpense = NewExpenseViewController()
+        let item2 = UITabBarItem(title: "+", image: nil, selectedImage: nil)
+        newExpense.tabBarItem = item2
+        
+        self.viewControllers = [mainView, newExpense]
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController is NewExpenseViewController {
+            let vc = NewExpenseViewController()
+            vc.presentationController?.delegate = mainView
+            
+            present(vc, animated: true, completion: nil)
+            return false
+        }
+        
+        return true
     }
-    */
-
 }
+

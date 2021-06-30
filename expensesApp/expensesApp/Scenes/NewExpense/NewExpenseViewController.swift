@@ -7,23 +7,48 @@
 
 import UIKit
 
-class NewExpenseViewController: UIViewController {
-
+internal final class NewExpenseViewController: UIViewController,  UIAdaptivePresentationControllerDelegate {
+    let mainView: NewExpenseView = {
+        let view = NewExpenseView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.grey
+        setUpView()
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension NewExpenseViewController: ProgramaticalLayout {
+    func setUpViewHierarchy() {
+        view.addSubview(mainView)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpConstraints() {
+        NSLayoutConstraint.activate([
+            mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
-    */
-
+    
+    func saveExpense(amount: Double, description: String) {
+        let expense = Expense(description: description, date: Date(), amount: amount, type: .positive)
+        LocalExpenseDataSource.shared.newExpense(expense)
+        
+        self.presentationController?.delegate?.presentationControllerDidDismiss?(self.presentationController!)
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setUpAdditionalConfig() {
+        mainView.saveButtonPressed = saveExpense(amount:description:)
+        mainView.closeButtonTap = {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }

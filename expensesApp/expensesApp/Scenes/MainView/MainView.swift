@@ -134,7 +134,6 @@ fileprivate func prepareExpensesTable() -> UITableView {
     tableView.showsVerticalScrollIndicator = false
     tableView.backgroundColor = .clear
     tableView.register(ExpenseCell.self, forCellReuseIdentifier: ExpenseCell.description())
-//    table.
     
     return tableView
 }
