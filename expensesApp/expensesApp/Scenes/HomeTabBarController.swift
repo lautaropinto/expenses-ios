@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeTabBarController: UITabBarController, UITabBarControllerDelegate {
-    let mainView = MainViewController()
+    let mainView = HomeViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

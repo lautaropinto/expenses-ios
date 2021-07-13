@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class MainView: UIView {
+internal final class HomeView: UIView {
     let backgroundView = prepareBackgroundView()
     let mainTitle = prepareMainTitle()
     let totalLabel = prepareTotalLabel()
@@ -54,7 +54,7 @@ internal final class MainView: UIView {
 }
 
 // MARK:- AutoLayout
-extension MainView: ProgramaticalLayout {
+extension HomeView: ProgramaticalLayout {
     func setUpViewHierarchy() {
         [backgroundView, mainTitle, totalLabel, incomeView, expenseView, expensesTable].forEach({ addSubview($0) })
     }
@@ -88,7 +88,7 @@ extension MainView: ProgramaticalLayout {
 }
 
 // MARK:- Table view
-extension MainView: UITableViewDelegate, UITableViewDataSource {
+extension HomeView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expenses.count
     }

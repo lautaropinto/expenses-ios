@@ -7,8 +7,8 @@
 
 import UIKit
 
-internal final class MainViewController: UIViewController, ProgramaticalLayout, ExpenseFetchable {
-    @UsesAutoLayout var mainView = MainView()
+internal final class HomeViewController: UIViewController, ProgramaticalLayout, ExpenseFetchable {
+    @UsesAutoLayout var mainView = HomeView()
     
     var expenses: [Expense] = [] {
         didSet {
@@ -65,7 +65,7 @@ internal final class MainViewController: UIViewController, ProgramaticalLayout, 
     }
 }
 
-extension MainViewController: UIAdaptivePresentationControllerDelegate {
+extension HomeViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         expenses = fetchExpenses()
     }
