@@ -8,12 +8,7 @@
 import UIKit
 
 internal final class NewExpenseViewController: UIViewController,  UIAdaptivePresentationControllerDelegate {
-    let mainView: NewExpenseView = {
-        let view = NewExpenseView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
+    @UsesAutoLayout var mainView = NewExpenseView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +41,7 @@ extension NewExpenseViewController: ProgramaticalLayout {
     }
     
     func setUpAdditionalConfig() {
+        //TODO: Refactor
         mainView.saveButtonPressed = saveExpense(amount:description:)
         mainView.closeButtonTap = {
             self.dismiss(animated: true, completion: nil)

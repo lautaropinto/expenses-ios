@@ -7,22 +7,18 @@
 
 import UIKit
 
-internal final class MainViewController: UIViewController, ProgramaticalLayout {
-    let mainView: MainView = {
-        let view = MainView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
+internal final class MainViewController: UIViewController, ProgramaticalLayout, ExpenseFetchable {
+    @UsesAutoLayout var mainView = MainView()
     
     var expenses: [Expense] = [] {
         didSet {
             mainView.expenses = expenses
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        expenses = LocalExpenseDataSource.shared.getExpenses()
+        expenses = fetchExpenses()
     }
     
     override func viewDidLoad() {
@@ -30,8 +26,6 @@ internal final class MainViewController: UIViewController, ProgramaticalLayout {
         view.backgroundColor = .white
 
         setUpView()
-        let fakeExpenses: [Expense] = Expense.getFakeList()
-        fakeExpenses.forEach { LocalExpenseDataSource.shared.newExpense($0) }
     }
     
     func setUpViewHierarchy() {
@@ -73,6 +67,6 @@ internal final class MainViewController: UIViewController, ProgramaticalLayout {
 
 extension MainViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        expenses = LocalExpenseDataSource.shared.getExpenses()
+        expenses = fetchExpenses()
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Lautaro Pinto on 29/06/2021.
 //
 
-import Foundation
+import UIKit
 
 extension UIView {
     func applyShadow() {
