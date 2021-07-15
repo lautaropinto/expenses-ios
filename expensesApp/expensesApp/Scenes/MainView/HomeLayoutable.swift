@@ -7,25 +7,13 @@
 
 import UIKit
 
-internal protocol HomeLayoutable: UIViewController, ProgramaticalLayout {
+internal protocol HomeLayoutable: MainViewLayoutable {
     var mainView: HomeView { get set }
     
     func setGradientBackground()
 }
 
 extension HomeLayoutable {
-    func setUpViewHierarchy() {
-        view.addSubview(mainView)
-    }
-    
-    func setUpConstraints() {
-        NSLayoutConstraint.activate([
-            mainView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            mainView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-    }
     
     func setUpAdditionalConfig() {
         navigationController?.isNavigationBarHidden = true

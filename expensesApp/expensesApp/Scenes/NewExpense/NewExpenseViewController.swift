@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class NewExpenseViewController: UIViewController,  UIAdaptivePresentationControllerDelegate {
+internal final class NewExpenseViewController: UIViewController, NewExpenseLayoutable,  UIAdaptivePresentationControllerDelegate {
     @UsesAutoLayout var mainView = NewExpenseView()
     
     override func viewDidLoad() {
@@ -18,19 +18,6 @@ internal final class NewExpenseViewController: UIViewController,  UIAdaptivePres
 }
 
 extension NewExpenseViewController: ProgramaticalLayout {
-    func setUpViewHierarchy() {
-        view.addSubview(mainView)
-    }
-    
-    func setUpConstraints() {
-        NSLayoutConstraint.activate([
-            mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-    }
-    
     func saveExpense(amount: Double, description: String) {
         let expense = Expense(description: description, date: Date(), amount: amount, type: .positive)
         LocalExpenseDataSource.shared.newExpense(expense)
